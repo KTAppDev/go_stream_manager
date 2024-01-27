@@ -3,12 +3,18 @@ package browser
 import (
 	"context"
 	"log"
+	"os"
 
 	"github.com/chromedp/chromedp"
 )
 
 func StartBrowser(useCookies bool, headless bool) {
-	log.Println(useCookies)
+	// URL := "https://www.facebook.com/live/producer/v2/?entry_point=live_producer_v2_single_page&target_id=100003277015937"
+	URL := os.Getenv("URL")
+	USERNAME := os.Getenv("USERNAME")
+	PASSWORD := os.Getenv("PASSWORD")
+
+	log.Println("this is cookies", useCookies)
 
 	// Create a context with options
 	execAllocatorOptions := []chromedp.ExecAllocatorOption{
@@ -26,7 +32,11 @@ func StartBrowser(useCookies bool, headless bool) {
 	// Example: Open a webpage and retrieve text
 	var res string
 	err := chromedp.Run(ctx,
-		chromedp.Navigate(`https://www.google.com`),
+		chromedp.Navigate(URL),
+		// I will be using cookies login is there incase
+		chromedp.SendKeys("#email", USERNAME, chromedp.NodeVisible), // Replace #inputFieldID with the actual input field selector
+		chromedp.SendKeys("#pass", PASSWORD, chromedp.NodeVisible),  // Replace #inputFieldID with the actual input field selector
+		chromedp.SendKeys("#pass", "\n", chromedp.ByQuery),
 		chromedp.Text(`#some-id`, &res, chromedp.NodeVisible),
 	)
 	if err != nil {
