@@ -11,7 +11,7 @@ import (
 
 func main() {
 	// Parse command-line flags
-	cookieFlag := flag.Bool("cookies", false, "Enable cookie management")
+	cookieFlag := flag.Bool("cookies", true, "Enable cookie management")
 	flag.Parse()
 
 	// Initialize logging
