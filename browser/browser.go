@@ -33,7 +33,7 @@ func StartBrowser(useCookies bool, headless bool) {
 		chromedp.SendKeys("#email", USERNAME, chromedp.NodeVisible),
 		chromedp.SendKeys("#pass", PASSWORD, chromedp.NodeVisible),
 		chromedp.SendKeys("#pass", "\n", chromedp.ByQuery),
-		chromedp.Text(`#some-id`, &res, chromedp.NodeVisible),
+		// chromedp.Text(`#some-id`, &res, chromedp.NodeVisible),
 	)
 	if err != nil {
 		log.Fatal(err)
@@ -42,7 +42,12 @@ func StartBrowser(useCookies bool, headless bool) {
 	log.Println(res)
 
 	if useCookies {
+		log.Println("running saveCookies")
 		SaveCookies(ctx)
+	}
+	errr := chromedp.Text(`#some-id`, &res, chromedp.NodeVisible)
+	if errr != nil {
+		log.Fatalf("Failed to retrieve cookies: %v", errr)
 	}
 }
 

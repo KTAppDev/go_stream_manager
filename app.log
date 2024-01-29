@@ -26,3 +26,14 @@
 2024/01/26 23:46:35 this is cookies false
 2024/01/26 23:49:28 this is cookies false
 2024/01/29 13:24:52 this is cookies false
+2024/01/29 15:20:57 this is cookies true
+2024/01/29 15:22:06 this is cookies true
+2024/01/29 15:29:21 this is cookies true
+2024/01/29 15:29:24 
+2024/01/29 15:29:24 running saveCookies
+2024/01/29 15:29:24 Cookies saved successfully.
+2024/01/29 15:32:15 this is cookies true
+2024/01/29 15:32:18 
+2024/01/29 15:32:18 running saveCookies
+2024/01/29 15:32:18 Cookies saved successfully.
+2024/01/29 15:32:18 Failed to retrieve cookies: &{#some-id <nil> 5000000 1 0x100c509b0 0x100c516b0 0x100c51c60}
